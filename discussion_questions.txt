@@ -1,0 +1,20 @@
+Runtime:
+    1) In the context of figuring out whether a box of animal crackers contains an elephant, the workload would be equivalent to the total number of crackers in the box (i.e. the length of the input list). Since the worst case for workload would include going through the entire box (traversing the entire list) and not finding an elephant, the length of the list is the primary factor influencing runtime complexity in this example.
+    2) Descending order of efficiency:
+        O(1)
+        O(log n)
+        O(n)
+        O(n log n)
+        O(n^2)
+        O(2^n)
+Stacks and Queues:
+    1) Stack or queue more appropriate:
+        1. Loading & unloading pallets: stack
+        2. Capping bottles on an assembly line: queue
+        3. Calculating the solution to a parenthetical math expression: stack
+    2) Two more situations where a queue is more appropriate:
+        1. Actual manufacturing inventory management systems (my old company used FIFO rules for using raw materials that went into the products we made, in order to ensure materials were used up before they went bad).
+        2. 
+    3) Two more situations where a stack is more appropriate:
+        1. 
+        2. 
