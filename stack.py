@@ -1,3 +1,8 @@
+
+
+
+
+
 class StackEmptyError(IndexError):
     """Attempt to pop an empty stack."""
 
@@ -76,10 +81,8 @@ class Stack(object):
             3
         """
 
-        # FIXME
+        return len(self._list)
 
-        pass
-        
     def empty(self):
         """Empty stack::
 
@@ -97,9 +100,7 @@ class Stack(object):
             0
         """
 
-        # FIXME
-
-        pass
+        self._list = []
 
     def is_empty(self):
         """Is stack empty?
@@ -117,9 +118,8 @@ class Stack(object):
             False
         """
 
-        # FIXME
+        return not bool(self._list)
 
-        pass
 
 if __name__ == "__main__":
     import doctest
@@ -129,4 +129,3 @@ if __name__ == "__main__":
     if not result.failed:
         print "ALL TESTS PASSED. GOOD WORK!"
     print
-
