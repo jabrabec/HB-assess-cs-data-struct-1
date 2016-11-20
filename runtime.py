@@ -3,16 +3,16 @@ def string_compare(s1, s2):
 
     Put runtime here:
     -----------------
-    [               ]
+    [      O(n)         ]
 
 
     """
 
-    if len(s1) != len(s2):
+    if len(s1) != len(s2):  # O(1)
         return False
 
-    for i in range(len(s1)):
-        if s1[i] != s2[i]:
+    for i in range(len(s1)):  # list traversal: O(n)
+        if s1[i] != s2[i]:  # index lookup: O(1)
             return False
 
     return True
@@ -23,11 +23,12 @@ def has_exotic_animals(animals):
 
     Put runtime here:
     -----------------
-    [               ]
+    [      O(n)         ]
 
     """
 
-    if "hippo" in animals or "platpypus" in animals:
+    # slight typo correction below:
+    if "hippo" in animals or "platypus" in animals:  # list traversal: O(n) (only traverses the list once.)
         return True
     else:
         return False
@@ -38,19 +39,19 @@ def sum_zero_1(numbers):
 
     Put runtime here:
     -----------------
-    [               ]
+    [      O(n)         ]
 
     """
 
-    result = []
+    result = []  # O(1)
 
     # Hint: the following line, "s = set(numbers)", is O(n) ---
     # we'll learn exactly why later
-    s = set(numbers)
+    s = set(numbers)  # O(n)
 
-    for x in s:
-        if -x in s:
-            result.append([-x, x])
+    for x in s:  # O(n) - set traversal
+        if -x in s:  # O(1) - set lookup
+            result.append([-x, x])  # O(1)
 
     return result
 
@@ -60,16 +61,16 @@ def sum_zero_2(numbers):
 
     Put runtime here:
     -----------------
-    [               ]
+    [      O(n^2)         ]
 
     """
 
-    result = []
+    result = []  # O(1)
 
-    for x in numbers:
-        for y in numbers:
-            if x == -y:
-                result.append((x, y))
+    for x in numbers:  # O(n)
+        for y in numbers:  # O(n) - occurs once for every x in numbers - nested loop
+            if x == -y:  # O(1) - not exponential by 'for x/y in numbers'
+                result.append((x, y))  # O(1)
     return result
 
 
@@ -80,14 +81,14 @@ def sum_zero_3(numbers):
 
     Put runtime here:
     -----------------
-    [               ]
+    [       O(n^2)        ]
 
     """
 
     result = []
 
-    for x in numbers:
-        for y in numbers:
-            if x == -y and (y, x) not in result:
-                result.append((x, y))
+    for x in numbers:  # O(n)
+        for y in numbers:  # O(n) - occurs once for every x in numbers - nested loop
+            if x == -y and (y, x) not in result:  # 'if' statement is O(1) but 'and' statement is O(n) - however, this line even executing is conditional on a match being present, which is not guaranteed. list of results is virtually guaranteed to be shorter than the input list 'numbers', so 'numbers' will have the greatest impact on runtime.
+                result.append((x, y))  # O(1)
     return result
