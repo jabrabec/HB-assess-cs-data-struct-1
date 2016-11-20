@@ -28,6 +28,7 @@ Linked Lists:
         Tail: Technically this list does not have a tail as there is no 'tail' attribute in the diagram pointing at anything. If there were, in this example the tail would be diagrammed similarly to the 'head' but it would be graphed underneath the node with the data attribute "Cherry" and would be pointing at it.
     2) Doubly- and singly-linked lists differ in that, while the nodes of each type of list will always have a 'next' attribute that points to the next item in the list, a node in a doubly-linked list will also have a 'previous' attribute that will allow for traversing the list backwards instead of unidirectionally.
     3) It's faster (or, technically, more efficient) to append to a linked list if keeping track of the tail as an attribute because the position of the tail will always be known, and a search or traversal over the list won't have to be done to find and update the end of that list. Without a tail attribute, the list will have to be traversed by starting at the head and following each node's 'next' pointer until finding the last node where 'next': None. Because this process represents list traversal, its runtime would be determined by the length of the list, as in O(n). If the linked list had a tail attribute, though, which pointed to the last node, the length of the list wouldn't matter and the last node could be identified by simple 'index'-like lookup, which has a constant runtime complexity, O(1).
+
 Trees:
     1) Breadth-first search:
         Food
