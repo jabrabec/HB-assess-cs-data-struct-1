@@ -7,6 +7,7 @@ Runtime:
         O(n log n)
         O(n^2)
         O(2^n)
+
 Stacks and Queues:
     1) Stack or queue more appropriate:
         1. Loading & unloading pallets: stack
@@ -14,7 +15,42 @@ Stacks and Queues:
         3. Calculating the solution to a parenthetical math expression: stack
     2) Two more situations where a queue is more appropriate:
         1. Actual manufacturing inventory management systems (my old company used FIFO rules for using raw materials that went into the products we made, in order to ensure materials were used up before they went bad).
-        2. 
+        2. Toll booth lines
     3) Two more situations where a stack is more appropriate:
-        1. 
-        2. 
+        1. People getting into and out of an elevator (where only one door is present)
+        2. Batteries in a flashlight (when they need to be replaced)
+
+Linked Lists:
+    1) In the example:
+        Nodes: each of three two-part boxes that contain a data box ("Apple", "Berry", and "Cherry") and a 'next' attribute box
+        Data: at each node, the text contained in the left-side box: "Apple", "Berry", and "Cherry"
+        Head: the head is an attribute (italic 'head') of a linked list (here called 'LLIST'), which points to a node as a method to track where the list starts; in this case it points to the node containing the data attribute "Apple" so this is the head of the list.
+        Tail: Technically this list does not have a tail as there is no 'tail' attribute in the diagram that points at anything. If there were, in this example the tail would be diagrammed similarly to the 'head' but it would be pointing to the node with the data attribute "Cherry."
+    2) Doubly- and singly-linked lists differ in that, while the nodes of each type of list will always have a 'next' attribute that points to the next item in the list, a node in a doubly-linked list will also have a 'previous' attribute that will allow for traversing the list backwards instead of unidirectionally.
+    3) It's faster (or, technically, more efficient) to append to a linked list if keeping track of the tail as an attribute because the position of the tail will always be known, and a search or traversal over the list won't have to be done to find and update the end of that list. Without a tail attribute, the list will have to be traversed by starting at the head and following each node's 'next' pointer until finding the last node where 'next': None. Because this process represents list traversal, its runtime would be determined by the length of the list, as in O(n). If the linked list had a tail attribute, though, which pointed to the last node, the length of the list wouldn't matter and the last node could be identified by simple 'index'-like lookup, which has a constant runtime complexity, O(1).
+Trees:
+    1) Breadth-first search:
+        Food
+            Italian
+            Indian
+            Mexican
+                lasagna
+                pizza
+                tikka masala
+                saag
+                burrito
+    2) Depth-first search:
+        Food
+            Mexican
+                enchiladas
+                tacos
+                burritos
+            Indian
+                saag
+                tikka masala
+            Italian
+                pizza
+                Sicilian
+                New York-style
+                Chicago-style
+    3) A binary search tree is different from other trees in that each node will have only, at most, one left child and one right child, and there are rules for how they are arranged (e.g. alphabetically with regards to the parent node). Binary search trees have a relative ordering in how the nodes are organized. They allow for faster searching of lists without necessarily having to sort the lists first; the tree is sorted, though, because of the rules for their arrangement. Every step from a parent to a child node reduces the search space by half (because there are at most 2 children nodes for that parent node). Therefore, they will be more efficient for finding specific nodes (O(log n)) than simply traversing an unsorted list (O(n)).
